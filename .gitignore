@@ -1,0 +1,7 @@
+*.py[co]
+build
+__pycache_
+
+# Flask stuff:
+instance/
+.webassets-cache_
