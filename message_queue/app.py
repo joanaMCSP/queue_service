@@ -10,7 +10,6 @@ def setup():
     logging.basicConfig(level=logging.DEBUG, format='(%(threadName)-s) %(message)s',)
 setup()
 
-
 @app.route('/messages', methods = ['POST'])
 def write():
     message = request.get_json()
@@ -26,11 +25,10 @@ def write():
         abort(400)
     return jsonify(message)
 
-
 @app.route('/messages', methods = ['GET'])
 def read():
     item = queue.read()
     return jsonify({'text':item})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=config.DEBUG)
+    app.run(host='0.0.0.0')

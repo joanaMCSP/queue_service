@@ -8,13 +8,13 @@ which produces an identical copy of the file.
 
 ## Desing considerations
 The design was kept simple as this is a proof-of-concept project. At the moment a client can write a simple json based message and
-a message can be read by anyone in the same format on the other end. The messages do not currently have a specific destination and 
+a message can be read by anyone in the same format on the other end. The messages do not currently have a specific destination and
 contain just a single 'text' field.
 Some thoughts for expanding and improving the service would be to implement a priority-based system (a priority queue can be used for this).
-A client application should be able to specify additional data for the message and a wrapper for the messages should be handled internally 
-by the service. This would allow for some additional fields for each item (key, priority level, timestamps, etc). This would also allow 
-messages to be mapped to specific recipients which is a more realistic scenario. The service could also grow to have multiple queues 
-divided by topic or by priority, which would allow users a more fined-grained control as well as performance improvements. Some sort of 
+A client application should be able to specify additional data for the message and a wrapper for the messages should be handled internally
+by the service. This would allow for some additional fields for each item (key, priority level, timestamps, etc). This would also allow
+messages to be mapped to specific recipients which is a more realistic scenario. The service could also grow to have multiple queues
+divided by topic or by priority, which would allow users a more fined-grained control as well as performance improvements. Some sort of
 persistence would eventually be necessary and since the data will be quite homegenous a NoSQL key-value data store would be a good option.
 
 ## Set up and running
@@ -23,11 +23,11 @@ The queue service uses Flask for the api. It can be run with the following comma
  ```
  cd message_queue
  pip install -r requirements.txt
- python message_queue.py
-    
+ python app.py
+
  ```
  You can interact with the service by using curl and hitting the following endpoints to read or write messages:
- 
+
 * POST to http://localhost:5000/messages to write a message   
 * GET http://localhost:5000/messages to read a message   
 
@@ -66,6 +66,3 @@ python test_integration.py
 * Containerization with Docker and docker-compose
 * Persistence
 * Scalability strategy
-
-
-

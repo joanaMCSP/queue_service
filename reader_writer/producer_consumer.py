@@ -22,7 +22,6 @@ class ProducerThread(threading.Thread):
                 requests.post(URL, json = {'text': line})
                 sleep(randint(0, 1))
             requests.post(URL, json = {'text': EXIT_MESSAGE})
-        return
 
 class ConsumerThread(threading.Thread):
     def run(self):
@@ -34,10 +33,9 @@ class ConsumerThread(threading.Thread):
                     if message['text'] == 'exit':
                         break
                     f.write(message['text'])
+                    sleep(randint(0, 1))
                 except ValueError as e:
                     logging.debug(e)
-            sleep(randint(0, 1))
-        return
 
 if __name__ == '__main__':
 
