@@ -1,4 +1,4 @@
-# queue_service
+# queue-service
 
 A simple messaging queue system written in Python
 
